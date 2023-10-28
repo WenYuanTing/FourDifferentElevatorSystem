@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>電梯管理系統</title>
+  </head>
+  <body>
+    <div>
+      <div class="partAB">
+        <div class="partA">
+          <h2>1.先到先得</h2>
+          <canvas class="myCanvas" width="500px" height="630px"> </canvas>
+        </div>
+
+        <div class="partB">
+          <h2>2.最短優先</h2>
+
+          <canvas class="myCanvas" width="500px" height="630px"> </canvas>
+        </div>
+      </div>
+      <div class="partCD">
+        <div class="partC">
+          <h2>3.頂底層之間往返循環</h2>
+
+          <canvas class="myCanvas" width="500px" height="630px"> </canvas>
+        </div>
+        <div class="partD">
+          <h2>4.頂底層之間往返循環(按請求的頂底層)</h2>
+          <button id="toggleButton">暫停/繼續</button>
+          <canvas class="myCanvas" id="myCanvas" width="500px" height="630px">
+          </canvas>
+        </div>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
