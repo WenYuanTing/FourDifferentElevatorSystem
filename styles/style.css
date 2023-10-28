@@ -9,7 +9,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-body div #toggleButton {
+body div .allButton {
   margin: 0.25rem auto;
   display: block;
   font-size: 1.25rem;

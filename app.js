@@ -538,7 +538,9 @@ function draw() {
 
   //如果numberOfPeopleArrived=40，代表所有人已離開電梯，結束動畫
   if (numberOfPeopleArrived == 40) {
-    window.alert("所有人都已離開電梯，總耗時 : " + time + " 秒。");
+    window.alert(
+      "頂底層之間往返循環(按請求的頂底層)已完成，總耗時 : " + time + " 秒。"
+    );
 
     clearInterval(elevatorStart);
   }
