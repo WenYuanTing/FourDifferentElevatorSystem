@@ -1986,53 +1986,59 @@ function PartCDraw() {
   //判斷目前是否有人在電梯內部且電梯有無basicTarget作為基準，如果兩個條件都無
   //在這裡設置好電梯行徑方向與當前最高或最低樓層
   //左邊電梯
-  if (
-    //PartCElevatorInfo.currentPeople == 0 &&
-    PartCElevatorInfo.basicTarget == "none"
-  ) {
-    //目前電梯內沒有乘客，也沒有基準
-    //從peopelInfo讀取一筆乘客資料status為offTheElevator，且elevatorResponse為none作為基準
-    //將該筆資料的In當作endFloor
-    //且判斷電梯運行方向
-    for (let i = 0; i < PartCPeopleInfo.length; i++) {
-      console.log("進入到設定partC電梯初始迴圈");
-      if (
-        PartCPeopleInfo[i].status == "offTheElevator" &&
-        PartCPeopleInfo[i].elevatorResponse == "none"
-      ) {
-        PartCElevatorInfo.endFloor = PartCPeopleInfo[i].In;
-        PartCPeopleInfo[i].elevatorResponse = "Yes";
-        console.log(
-          "partC電梯，將第 " + i + " 個乘客的elevatorResponse設定為Yes"
-        );
-        PartCElevatorInfo.basicTarget = "yes";
-        console.log(
-          "partC電梯，找到basicTarget，設置為: " + PartCElevatorInfo.basicTarget
-        );
-        if (PartCElevatorInfo.currentFloor < PartCPeopleInfo[i].In) {
-          PartCElevatorInfo.direction = "up";
-          if (PartCPeopleInfo[i].In < PartCPeopleInfo[i].Out) {
-            PartCElevatorInfo.futureDirection = "up";
-          } else if (PartCPeopleInfo[i].In > PartCPeopleInfo[i].Out) {
-            PartCElevatorInfo.futureDirection = "down";
-          }
-          break;
-        } else if (PartCElevatorInfo.currentFloor > PartCPeopleInfo[i].In) {
-          PartCElevatorInfo.direction = "down";
-          if (PartCPeopleInfo[i].In < PartCPeopleInfo[i].Out) {
-            PartCElevatorInfo.futureDirection = "up";
-          } else if (PartCPeopleInfo[i].In > PartCPeopleInfo[i].Out) {
-            PartCElevatorInfo.futureDirection = "down";
-          }
-          break;
-        }
-        break;
-      }
-    }
-    console.log("partC電梯初始方向為: " + PartCElevatorInfo.direction);
-    console.log("partC電梯接客樓層: " + PartCElevatorInfo.endFloor);
-  }
+  // if (
+  //   PartCElevatorInfo.basicTarget == "none"
+  // ) {
+  //   //目前電梯內沒有乘客，也沒有基準
+  //   //從peopelInfo讀取一筆乘客資料status為offTheElevator，且elevatorResponse為none作為基準
+  //   //將該筆資料的In當作endFloor
+  //   //且判斷電梯運行方向
+  //   for (let i = 0; i < PartCPeopleInfo.length; i++) {
+  //     console.log("進入到設定partC電梯初始迴圈");
+  //     if (
+  //       PartCPeopleInfo[i].status == "offTheElevator" &&
+  //       PartCPeopleInfo[i].elevatorResponse == "none"
+  //     ) {
+  //       PartCElevatorInfo.endFloor = PartCPeopleInfo[i].In;
+  //       PartCPeopleInfo[i].elevatorResponse = "Yes";
+  //       console.log(
+  //         "partC電梯，將第 " + i + " 個乘客的elevatorResponse設定為Yes"
+  //       );
+  //       PartCElevatorInfo.basicTarget = "yes";
+  //       console.log(
+  //         "partC電梯，找到basicTarget，設置為: " + PartCElevatorInfo.basicTarget
+  //       );
+  //       if (PartCElevatorInfo.currentFloor < PartCPeopleInfo[i].In) {
+  //         PartCElevatorInfo.direction = "up";
+  //         if (PartCPeopleInfo[i].In < PartCPeopleInfo[i].Out) {
+  //           PartCElevatorInfo.futureDirection = "up";
+  //         } else if (PartCPeopleInfo[i].In > PartCPeopleInfo[i].Out) {
+  //           PartCElevatorInfo.futureDirection = "down";
+  //         }
+  //         break;
+  //       } else if (PartCElevatorInfo.currentFloor > PartCPeopleInfo[i].In) {
+  //         PartCElevatorInfo.direction = "down";
+  //         if (PartCPeopleInfo[i].In < PartCPeopleInfo[i].Out) {
+  //           PartCElevatorInfo.futureDirection = "up";
+  //         } else if (PartCPeopleInfo[i].In > PartCPeopleInfo[i].Out) {
+  //           PartCElevatorInfo.futureDirection = "down";
+  //         }
+  //         break;
+  //       }
+  //       break;
+  //     }
+  //   }
+  //   console.log("partC電梯初始方向為: " + PartCElevatorInfo.direction);
+  //   console.log("partC電梯接客樓層: " + PartCElevatorInfo.endFloor);
+  // }
   //-------------------------------partC電梯初始化設定結束------------------------------------------
+
+  //------------------------------partC電梯往頂層底層循環-------------------------------------------
+  if (PartCElevatorInfo.currentFloor == 0) {
+    PartCElevatorInfo.direction = "up";
+  } else if (PartCElevatorInfo.currentFloor == 9) {
+    PartCElevatorInfo.direction = "down";
+  }
 
   //-------------------------------partC電梯乘載客人條件--------------------------------------------
   //判斷所有還未上電梯的乘客，是否有符合條件可以搭乘partC電梯
@@ -2042,37 +2048,33 @@ function PartCDraw() {
       //狀態為offTheElevator，判斷電梯行徑方向是否與乘客相同
       //如果是作為基準值，direction可能會因為去上接乘客往下，或是下去接乘客往上而有所不同
       //所以elevatorResponse=yes的也可以搭乘
-      if (PartCPeopleInfo[i].elevatorResponse == "Yes") {
-        console.log("檢測到有乘客elevatorResponse為yes");
-        //相同路徑，或是elevatorResponse=yes
-        //判斷乘客與電梯是否有在相同樓層
-        if (PartCElevatorInfo.currentFloor == PartCPeopleInfo[i].In) {
-          console.log("檢測到有乘客與電梯樓層相同");
 
-          //相同樓層
-          //判斷電梯內人數是否少於5人
-          if (PartCElevatorInfo.currentPeople < 7) {
-            console.log("檢測到電梯內部少於7人，可以搭乘");
+      if (PartCElevatorInfo.currentFloor == PartCPeopleInfo[i].In) {
+        console.log("檢測到有乘客與電梯樓層相同");
 
-            //搭乘人數少於5人
-            //將資料推送到leftElevatorPassenger
+        //相同樓層
+        //判斷電梯內人數是否少於5人
+        if (PartCElevatorInfo.currentPeople < 7) {
+          console.log("檢測到電梯內部少於7人，可以搭乘");
 
-            PartCElevatorPassenger.push({
-              In: PartCPeopleInfo[i].In,
-              Out: PartCPeopleInfo[i].Out,
-              direction: PartCPeopleInfo[i].direction,
-            });
-            PartCPeopleInfo[i].status = "onTheElevator";
-            PartCElevatorInfo.currentPeople++;
-            console.log(
-              "已有 " + PartCElevatorInfo.currentPeople + " 位搭乘在左邊電梯內"
-            );
+          //搭乘人數少於5人
+          //將資料推送到leftElevatorPassenger
 
-            PartCDrawPassengerGetIntoTheElevator = setInterval(
-              partCPassengerGetIntoTheElevator,
-              500
-            );
-          }
+          PartCElevatorPassenger.push({
+            In: PartCPeopleInfo[i].In,
+            Out: PartCPeopleInfo[i].Out,
+            direction: PartCPeopleInfo[i].direction,
+          });
+          PartCPeopleInfo[i].status = "onTheElevator";
+          PartCElevatorInfo.currentPeople++;
+          console.log(
+            "已有 " + PartCElevatorInfo.currentPeople + " 位搭乘在左邊電梯內"
+          );
+
+          PartCDrawPassengerGetIntoTheElevator = setInterval(
+            partCPassengerGetIntoTheElevator,
+            500
+          );
         }
       }
     }
@@ -2093,43 +2095,42 @@ function PartCDraw() {
       console.log("左邊電梯，在 " + PartCElevatorPassenger[i].Out + "離開電梯");
       console.log("左邊電梯，行徑方向 " + PartCElevatorPassenger[i].direction);
     }
-
-    //------------------------------
     console.log(
       "左邊電梯，目前有 " + PartCElevatorInfo.currentPeople + " 位乘客"
     );
-    if (PartCElevatorInfo.currentFloor < PartCElevatorPassenger[0].Out) {
-      PartCElevatorInfo.direction = "up";
-    } else if (PartCElevatorInfo.currentFloor > PartCElevatorPassenger[0].Out) {
-      PartCElevatorInfo.direction = "down";
-    }
-    console.log("左邊電梯方向調整後，方向為 : " + PartCElevatorInfo.direction);
 
-    PartCElevatorInfo.endFloor = PartCElevatorPassenger[0].Out; //將第一位的Out暫時設為最終樓層
-    //如果人數大於1人，依照direction為上或下，來判斷最終樓層為多少
-    if (
-      PartCElevatorInfo.direction == "up" &&
-      PartCElevatorInfo.currentPeople > 1
-    ) {
-      //電梯往上
-      for (let i = 1; i < PartCElevatorPassenger.length; i++) {
-        if (PartCElevatorInfo.endFloor < PartCElevatorPassenger[i].Out) {
-          PartCElevatorInfo.endFloor = PartCElevatorPassenger[i].Out;
-        }
-      }
-    } else if (
-      PartCElevatorInfo.direction == "down" &&
-      PartCElevatorInfo.currentPeople > 1
-    ) {
-      for (let i = 1; i < leftElevatorPassenger.length; i++) {
-        if (PartCElevatorInfo.endFloor > PartCElevatorPassenger[i].Out) {
-          PartCElevatorInfo.endFloor = PartCElevatorPassenger[i].Out;
-        }
-      }
-    }
-    console.log(
-      "partC電梯最終樓調整後，樓層為 : " + PartCElevatorInfo.endFloor
-    );
+    // if (PartCElevatorInfo.currentFloor < PartCElevatorPassenger[0].Out) {
+    //   PartCElevatorInfo.direction = "up";
+    // } else if (PartCElevatorInfo.currentFloor > PartCElevatorPassenger[0].Out) {
+    //   PartCElevatorInfo.direction = "down";
+    // }
+    // console.log("左邊電梯方向調整後，方向為 : " + PartCElevatorInfo.direction);
+
+    // PartCElevatorInfo.endFloor = PartCElevatorPassenger[0].Out; //將第一位的Out暫時設為最終樓層
+    // //如果人數大於1人，依照direction為上或下，來判斷最終樓層為多少
+    // if (
+    //   PartCElevatorInfo.direction == "up" &&
+    //   PartCElevatorInfo.currentPeople > 1
+    // ) {
+    //   //電梯往上
+    //   for (let i = 1; i < PartCElevatorPassenger.length; i++) {
+    //     if (PartCElevatorInfo.endFloor < PartCElevatorPassenger[i].Out) {
+    //       PartCElevatorInfo.endFloor = PartCElevatorPassenger[i].Out;
+    //     }
+    //   }
+    // } else if (
+    //   PartCElevatorInfo.direction == "down" &&
+    //   PartCElevatorInfo.currentPeople > 1
+    // ) {
+    //   for (let i = 1; i < leftElevatorPassenger.length; i++) {
+    //     if (PartCElevatorInfo.endFloor > PartCElevatorPassenger[i].Out) {
+    //       PartCElevatorInfo.endFloor = PartCElevatorPassenger[i].Out;
+    //     }
+    //   }
+    // }
+    // console.log(
+    //   "partC電梯最終樓調整後，樓層為 : " + PartCElevatorInfo.endFloor
+    // );
   }
 
   //每次加一秒
@@ -2143,7 +2144,7 @@ function PartCDraw() {
 
   //如果numberOfPeopleArrived=40，代表所有人已離開電梯，結束動畫
   if (PartCNumberOfPeopleArrived == 40) {
-    window.alert("先到先得已完成，總耗時 : " + PartCTime + " 秒。");
+    window.alert("頂底層之間往返循環已完成，總耗時 : " + PartCTime + " 秒。");
 
     clearInterval(PartCElevatorStart);
   }
