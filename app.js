@@ -419,6 +419,7 @@ function draw() {
           }
           break;
         }
+        break;
       }
     }
     console.log("左邊電梯初始方向為: " + leftElevatorInfo.direction);
@@ -1352,136 +1353,136 @@ function PartADraw() {
 function partAPassengerGetIntoTheElevator() {
   //繪製電梯旁乘客進入左邊電梯，讓電梯人數++
 
-  if (leftElevatorInfo.currentPeople == 1) {
+  if (PartAElevatorInfo.currentPeople == 1) {
     // console.log("重新繪製電梯內人數，目前1人");
 
-    ctx.drawImage(
+    PartActx.drawImage(
       onePerson,
-      leftElevator[leftElevatorInfo.currentFloor].x + 40,
-      leftElevator[leftElevatorInfo.currentFloor].y + 10,
+      PartAElevator[PartAElevatorInfo.currentFloor].x + 40,
+      PartAElevator[PartAElevatorInfo.currentFloor].y + 10,
       30,
       30
     );
   } else if (leftElevatorInfo.currentPeople == 2) {
     //console.log("重新繪製電梯內人數，目前2人");
 
-    ctx.drawImage(
+    PartActx.drawImage(
       twoPeople,
-      leftElevator[leftElevatorInfo.currentFloor].x + 40,
-      leftElevator[leftElevatorInfo.currentFloor].y + 10,
+      PartAElevator[PartAElevatorInfo.currentFloor].x + 40,
+      PartAElevator[PartAElevatorInfo.currentFloor].y + 10,
       30,
       30
     );
-  } else if (leftElevatorInfo.currentPeople == 3) {
+  } else if (PartAElevatorInfo.currentPeople == 3) {
     //console.log("重新繪製電梯內人數，目前3人");
 
-    ctx.drawImage(
+    PartActx.drawImage(
       threePeople,
-      leftElevator[leftElevatorInfo.currentFloor].x + 40,
-      leftElevator[leftElevatorInfo.currentFloor].y + 10,
+      PartAElevator[PartAElevatorInfo.currentFloor].x + 40,
+      PartAElevator[PartAElevatorInfo.currentFloor].y + 10,
       30,
       30
     );
-  } else if (leftElevatorInfo.currentPeople == 4) {
+  } else if (PartAElevatorInfo.currentPeople == 4) {
     //console.log("重新繪製電梯內人數，目前4人");
 
-    ctx.drawImage(
+    PartActx.drawImage(
       fourPeople,
-      leftElevator[leftElevatorInfo.currentFloor].x + 40,
-      leftElevator[leftElevatorInfo.currentFloor].y + 10,
+      PartAElevator[PartAElevatorInfo.currentFloor].x + 40,
+      PartAElevator[PartAElevatorInfo.currentFloor].y + 10,
       30,
       30
     );
-  } else if (leftElevatorInfo.currentPeople == 5) {
+  } else if (PartAElevatorInfo.currentPeople == 5) {
     //console.log("重新繪製電梯內人數，目前5人");
 
-    ctx.drawImage(
+    PartActx.drawImage(
       fivePeople,
-      leftElevator[leftElevatorInfo.currentFloor].x + 40,
-      leftElevator[leftElevatorInfo.currentFloor].y + 10,
+      PartAElevator[PartAElevatorInfo.currentFloor].x + 40,
+      PartAElevator[PartAElevatorInfo.currentFloor].y + 10,
       30,
       30
     );
-  } else if (leftElevatorInfo.currentPeople == 6) {
+  } else if (PartAElevatorInfo.currentPeople == 6) {
     //console.log("重新繪製電梯內人數，目前6人");
 
-    ctx.drawImage(
+    PartActx.drawImage(
       sixpeople,
-      leftElevator[leftElevatorInfo.currentFloor].x + 40,
-      leftElevator[leftElevatorInfo.currentFloor].y + 10,
+      PartAElevator[PartAElevatorInfo.currentFloor].x + 40,
+      PartAElevator[PartAElevatorInfo.currentFloor].y + 10,
       30,
       30
     );
-  } else if (leftElevatorInfo.currentPeople == 7) {
+  } else if (PartAElevatorInfo.currentPeople == 7) {
     //console.log("重新繪製電梯內人數，目前7人");
 
-    ctx.drawImage(
+    PartActx.drawImage(
       sevenpeople,
-      leftElevator[leftElevatorInfo.currentFloor].x + 40,
-      leftElevator[leftElevatorInfo.currentFloor].y + 10,
+      PartAElevator[PartAElevatorInfo.currentFloor].x + 40,
+      PartAElevator[PartAElevatorInfo.currentFloor].y + 10,
       30,
       30
     );
   }
   //繪製完電梯內乘客後，更新電梯外人數
-  let Floors = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  let PartAFloors = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-  for (let i = 0; i < peopleInfo.length; i++) {
-    if (peopleInfo[i].status == "offTheElevator") {
-      switch (peopleInfo[i].In) {
+  for (let i = 0; i < PartAPeopleInfo.length; i++) {
+    if (PartAPeopleInfo[i].status == "offTheElevator") {
+      switch (PartAPeopleInfo[i].In) {
         case 0:
-          Floors[0]++;
+          PartAFloors[0]++;
           break;
         case 1:
-          Floors[1]++;
+          PartAFloors[1]++;
           break;
         case 2:
-          Floors[2]++;
+          PartAFloors[2]++;
           break;
         case 3:
-          Floors[3]++;
+          PartAFloors[3]++;
           break;
         case 4:
-          Floors[4]++;
+          PartAFloors[4]++;
           break;
         case 5:
-          Floors[5]++;
+          PartAFloors[5]++;
           break;
         case 6:
-          Floors[6]++;
+          PartAFloors[6]++;
           break;
         case 7:
-          Floors[7]++;
+          PartAFloors[7]++;
           break;
         case 8:
-          Floors[8]++;
+          PartAFloors[8]++;
           break;
         case 9:
-          Floors[9]++;
+          PartAFloors[9]++;
           break;
       }
     }
   }
 
-  for (let i = 0; i < Floors.length; i++) {
-    if (Floors[i] == 0) {
-      ctx.fillStyle = "lightcyan";
-      ctx.fillRect(40, 570 - i * 60, 30, 30);
-    } else if (Floors[i] == 1) {
+  for (let i = 0; i < PartAFloors.length; i++) {
+    if (PartAFloors[i] == 0) {
+      PartActx.fillStyle = "lightcyan";
+      PartActx.fillRect(40, 570 - i * 60, 30, 30);
+    } else if (PartAFloors[i] == 1) {
       //console.log("重新繪製" + i + "樓電梯旁人數，剩餘人數 1 ..");
 
-      ctx.drawImage(onePerson, 40, 570 - i * 60, 30, 30);
+      PartActx.drawImage(onePerson, 40, 570 - i * 60, 30, 30);
     } else if (Floors[i] == 2) {
-      ctx.drawImage(twoPeople, 40, 570 - i * 60, 30, 30);
+      PartActx.drawImage(twoPeople, 40, 570 - i * 60, 30, 30);
       //console.log("重新繪製" + Floors[i] + "樓電梯旁人數，剩餘人數 2 ..");
     } else if (Floors[i] == 3) {
-      ctx.drawImage(threePeople, 40, 570 - i * 60, 30, 30);
+      PartActx.drawImage(threePeople, 40, 570 - i * 60, 30, 30);
       //console.log("重新繪製" + Floors[i] + "樓電梯旁人數，剩餘人數 3 ..");
     } else if (Floors[i] == 4) {
-      ctx.drawImage(fourPeople, 40, 570 - i * 60, 30, 30);
+      PartActx.drawImage(fourPeople, 40, 570 - i * 60, 30, 30);
       //console.log("重新繪製" + Floors[i] + "樓電梯旁人數，剩餘人數 4 ..");
     } else if (Floors[i] == 5) {
-      ctx.drawImage(fivePeople, 40, 570 - i * 60, 30, 30);
+      PartActx.drawImage(fivePeople, 40, 570 - i * 60, 30, 30);
       //console.log("重新繪製" + Floors[i] + "樓電梯旁人數，剩餘人數 5 ..");
     }
   }
@@ -1602,3 +1603,811 @@ cancelButton.addEventListener("click", () => {
     PartAElevatorStart = setInterval(PartADraw, 1000);
   }
 });
+
+//--------------------------------------------------------------------------------------------------------
+//---------------------------------PART A 先進先出結束---------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------
+//---------------------------------PART C 頂底層之間往返循環---------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------
+
+const PartCCanvas = document.getElementById("myCanvasPartC");
+const PartCctx = PartCCanvas.getContext("2d");
+const PartCUnit = 20;
+const PartCRow = PartCCanvas.height / PartCUnit;
+const PartCColumn = PartCCanvas.width / PartCUnit;
+
+const PartCctxLineWidth = 3;
+PartCctx.lineWidth = PartCctxLineWidth;
+PartCctx.font = "16px Arial"; // 設置文字的字體和大小
+
+let PartCPeople = 40;
+let PartCPeopleInfo = [];
+let PartCNumberOfPeopleArrived = 0;
+let PartCTime = 0;
+let PartCElevator = [];
+let PartCDrawPassengerGetIntoTheElevator;
+let PartCDrawPassengerGetOutTheElevator;
+
+let PartCNumberOfPassengerGetOutTheElevator = 0;
+
+let PartCElevatorInfo = {
+  direction: "",
+  currentFloor: "0",
+  endFloor: "0",
+  currentPeople: "0",
+  basicTarget: "none",
+  futureDirection: "",
+};
+
+let PartCElevatorPassenger = [];
+
+let PartCUpButton = [];
+let PartCDownButton = [];
+
+function PartCCreateElevator() {
+  let yLocation = 560;
+  for (let i = 0; i < 10; i++) {
+    PartCElevator.push({ x: 120, y: yLocation });
+    yLocation -= 60;
+    PartCctx.fillStyle = "white";
+    PartCctx.strokeStyle = "black";
+    PartCctx.fillRect(PartCElevator[i].x, PartCElevator[i].y, 120, 50);
+    PartCctx.strokeRect(PartCElevator[i].x, PartCElevator[i].y, 120, 50);
+  }
+}
+
+function PartCCreateUpButton() {
+  let yLocation = 570;
+  for (let i = 0; i < 10; i++) {
+    PartCUpButton.push({ x: 310, y: yLocation });
+    yLocation -= 60;
+    PartCctx.fillStyle = "white";
+    PartCctx.strokeStyle = "black";
+    PartCctx.drawImage(imageUp, PartCUpButton[i].x, PartCUpButton[i].y, 30, 30);
+    PartCctx.strokeRect(PartCUpButton[i].x, PartCUpButton[i].y, 30, 30);
+  }
+}
+function PartCCreateDownButton() {
+  let yLocation = 570;
+  for (let i = 0; i < 10; i++) {
+    PartCDownButton.push({ x: 350, y: yLocation });
+    yLocation -= 60;
+    PartCctx.fillStyle = "white";
+    PartCctx.strokeStyle = "black";
+    PartCctx.drawImage(
+      imageDown,
+      PartCDownButton[i].x,
+      PartCDownButton[i].y,
+      30,
+      30
+    );
+
+    PartCctx.strokeRect(PartCDownButton[i].x, PartCDownButton[i].y, 30, 30);
+  }
+}
+function PartCDrawPeopleCount() {
+  PartCctx.fillStyle = "black"; // 設置文字的顏色
+  PartCctx.fillText("剩餘人數: " + PartCPeople, 300, 15); // 在指定位置繪製人數信息
+}
+
+function PartCTotalTime() {
+  PartCctx.fillStyle = "black"; // 設置文字的顏色
+  PartCctx.fillText("目前所經過秒數: " + PartCTime, 285, 620); // 在指定位置繪製人數信息
+}
+
+PartCCreateElevator();
+PartCCreateUpButton();
+PartCCreateDownButton();
+PartCDrawPeopleCount();
+PartCTotalTime();
+//繪製電梯目前位置
+for (let i = 0; i < 10; i++) {
+  console.log(
+    "初始化，當前partC電梯在 " + PartCElevatorInfo.currentFloor + " 樓"
+  );
+  if (i == PartCElevatorInfo.currentFloor) {
+    PartCctx.fillStyle = "white";
+    PartCctx.strokeStyle = "red";
+    PartCctx.fillRect(PartCElevator[i].x, PartCElevator[i].y, 120, 50);
+    PartCctx.strokeRect(PartCElevator[i].x, PartCElevator[i].y, 120, 50);
+  }
+}
+
+function PartCDraw() {
+  //重置
+  PartCctx.fillStyle = "lightcyan";
+  PartCctx.fillRect(0, 0, PartCCanvas.width, PartCCanvas.height);
+
+  //繪製剩餘人數
+  PartCDrawPeopleCount();
+
+  //繪製電梯
+  for (let i = 0; i < 10; i++) {
+    PartCctx.fillStyle = "white";
+    PartCctx.strokeStyle = "black";
+    PartCctx.fillRect(PartCElevator[i].x, PartCElevator[i].y, 120, 50);
+    PartCctx.strokeRect(PartCElevator[i].x, PartCElevator[i].y, 120, 50);
+    PartCctx.drawImage(imageUp, PartCUpButton[i].x, PartCUpButton[i].y, 30, 30);
+    PartCctx.strokeRect(PartCUpButton[i].x, PartCUpButton[i].y, 30, 30);
+    PartCctx.drawImage(
+      imageDown,
+      PartCDownButton[i].x,
+      PartCDownButton[i].y,
+      30,
+      30
+    );
+    PartCctx.strokeRect(PartCDownButton[i].x, PartCDownButton[i].y, 30, 30);
+  }
+
+  //模擬人隨機按電梯按鈕
+  if (PartCPeople > 0) {
+    //隨機選擇出現樓層
+    let chooseFloor = Math.floor(Math.random() * 10);
+
+    //隨機選擇樓層出電梯
+    let chooseFloorOut = Math.floor(Math.random() * 10);
+
+    //先判斷時否有進出樓層是否有重覆，沒有的話，透過進出樓層判斷選擇電梯按鈕為上或下
+    let direction;
+    while (chooseFloorOut == chooseFloor) {
+      //console.log("樓層重覆");
+      chooseFloorOut = Math.floor(Math.random() * 10);
+    }
+    if (chooseFloorOut > chooseFloor) {
+      direction = "up";
+    } else {
+      direction = "down";
+    }
+    //紀錄每個人的資料，放在陣列當中
+    PartCPeopleInfo.push({
+      In: chooseFloor,
+      Out: chooseFloorOut,
+      direction: direction,
+      status: "offTheElevator",
+      elevatorResponse: "none",
+      arrive: "none",
+    });
+    PartCPeople--;
+  }
+
+  //判斷partC電梯往上還是往下
+  if (
+    PartCElevatorInfo.direction == "up" &&
+    PartCElevatorInfo.currentFloor < 9
+  ) {
+    PartCElevatorInfo.currentFloor++;
+    console.log("partC電梯上樓");
+  } else if (
+    PartCElevatorInfo.direction == "down" &&
+    PartCElevatorInfo.currentFloor > 0
+  ) {
+    PartCElevatorInfo.currentFloor--;
+    console.log("partC電梯下樓");
+  }
+
+  //繪製電梯移動後位置
+  for (let i = 0; i < 10; i++) {
+    if (i == PartCElevatorInfo.currentFloor) {
+      console.log(
+        "partC電梯，當前位於 " + PartCElevatorInfo.currentFloor + " 樓"
+      );
+      PartCctx.fillStyle = "white";
+      PartCctx.strokeStyle = "red";
+      PartCctx.fillRect(PartCElevator[i].x, PartCElevator[i].y, 120, 50);
+      PartCctx.strokeRect(PartCElevator[i].x, PartCElevator[i].y, 120, 50);
+      //繪製電梯內人數;
+      if (PartCElevatorInfo.currentPeople == 1) {
+        PartCctx.drawImage(
+          onePerson,
+          PartCElevator[i].x + 40,
+          PartCElevator[i].y + 10,
+          30,
+          30
+        );
+      } else if (PartCElevatorInfo.currentPeople == 2) {
+        PartCctx.drawImage(
+          twoPeople,
+          PartCElevator[i].x + 40,
+          PartCElevator[i].y + 10,
+          30,
+          30
+        );
+      } else if (PartCElevatorInfo.currentPeople == 3) {
+        PartCctx.drawImage(
+          threePeople,
+          PartCElevator[i].x + 40,
+          PartCElevator[i].y + 10,
+          30,
+          30
+        );
+      } else if (PartCElevatorInfo.currentPeople == 4) {
+        PartCctx.drawImage(
+          fourPeople,
+          PartCElevator[i].x + 40,
+          PartCElevator[i].y + 10,
+          30,
+          30
+        );
+      } else if (PartCElevatorInfo.currentPeople == 5) {
+        PartCctx.drawImage(
+          fivePeople,
+          PartCElevator[i].x + 40,
+          PartCElevator[i].y + 10,
+          30,
+          30
+        );
+      }
+    }
+  }
+
+  //移動完後，判斷是否有人要出電梯
+  //出電梯後，資料從PartCElevatorPassenger刪除，且PartCPeopleInfo.arrive設置為yes
+  for (let i = 0; i < PartCElevatorPassenger.length; i++) {
+    //判斷乘客Out樓層是否與當前樓層一樣
+    if (PartCElevatorPassenger[i].Out == PartCElevatorInfo.currentFloor) {
+      //樓層一樣，將peopleInfo.arrive 設置為 arrived
+      //且將在leftElevatorPassenger的資料刪除
+      PartCPeopleInfo.arrive = "arrived";
+      PartCElevatorPassenger.splice(i, 1);
+      i--; //因為砍掉一筆資料，所以讓i-1，而後迴圈中的i++會在檢測一次往前推送的資料
+      PartCElevatorInfo.currentPeople--;
+      PartCNumberOfPeopleArrived++;
+      console.log(
+        "partC電梯，有乘客離開，目前剩餘乘客數量為 : " +
+          PartCElevatorInfo.currentPeople
+      );
+      PartCNumberOfPassengerGetOutTheElevator++;
+
+      console.log("總共有 " + PartCNumberOfPeopleArrived + " 位乘客已離開");
+      //如果電梯內所有乘客都離開
+      if (PartCElevatorInfo.currentPeople == 0) {
+        PartCElevatorInfo.basicTarget = "none";
+        console.log("將partC ElevatorInfo.basicTarget設置為none");
+        PartCElevatorInfo.direction = "none";
+      }
+    }
+  }
+
+  //當有人上面從for迴圈離開電梯，用來顯示離開人數的動畫
+  if (PartCNumberOfPassengerGetOutTheElevator != 0) {
+    PartCDrawPassengerGetOutTheElevator = setInterval(
+      partCPassengerGetOutTheElevator,
+      500
+    );
+  }
+
+  //新增乘客資料後，用FOR迴圈顯示哪些按鈕目前有被按下
+  for (let i = 0; i < PartCPeopleInfo.length; i++) {
+    if (PartCPeopleInfo[i].status == "offTheElevator") {
+      if (PartCPeopleInfo[i].direction == "up") {
+        PartCctx.fillStyle = "white";
+        PartCctx.strokeStyle = "red";
+        PartCctx.drawImage(
+          imageUp,
+          PartCUpButton[PartCPeopleInfo[i].In].x,
+          PartCUpButton[PartCPeopleInfo[i].In].y,
+          30,
+          30
+        );
+        PartCctx.strokeRect(
+          PartCUpButton[PartCPeopleInfo[i].In].x,
+          PartCUpButton[PartCPeopleInfo[i].In].y,
+          30,
+          30
+        );
+      } else {
+        PartCctx.fillStyle = "white";
+        PartCctx.strokeStyle = "red";
+        PartCctx.drawImage(
+          imageDown,
+          PartCDownButton[PartCPeopleInfo[i].In].x,
+          PartCDownButton[PartCPeopleInfo[i].In].y,
+          30,
+          30
+        );
+        PartCctx.strokeRect(
+          PartCDownButton[PartCPeopleInfo[i].In].x,
+          PartCDownButton[PartCPeopleInfo[i].In].y,
+          30,
+          30
+        );
+      }
+    }
+  }
+
+  //用for迴圈顯示電梯邊有多少人在等待
+  let PartCFloors = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  for (let i = 0; i < PartCPeopleInfo.length; i++) {
+    if (PartCPeopleInfo[i].status == "offTheElevator") {
+      switch (PartCPeopleInfo[i].In) {
+        case 0:
+          PartCFloors[0]++;
+          break;
+        case 1:
+          PartCFloors[1]++;
+          break;
+        case 2:
+          PartCFloors[2]++;
+          break;
+        case 3:
+          PartCFloors[3]++;
+          break;
+        case 4:
+          PartCFloors[4]++;
+          break;
+        case 5:
+          PartCFloors[5]++;
+          break;
+        case 6:
+          PartCFloors[6]++;
+          break;
+        case 7:
+          PartCFloors[7]++;
+          break;
+        case 8:
+          PartCFloors[8]++;
+          break;
+        case 9:
+          PartCFloors[9]++;
+          break;
+      }
+    }
+  }
+  console.log("partC電梯目前每個樓層等待人數 : " + PartCFloors);
+
+  for (let i = 0; i < PartCFloors.length; i++) {
+    if (PartCFloors[i] == 1) {
+      PartCctx.drawImage(onePerson, 40, 570 - i * 60, 30, 30);
+    } else if (PartCFloors[i] == 2) {
+      PartCctx.drawImage(twoPeople, 40, 570 - i * 60, 30, 30);
+    } else if (PartCFloors[i] == 3) {
+      PartCctx.drawImage(threePeople, 40, 570 - i * 60, 30, 30);
+    } else if (PartCFloors[i] == 4) {
+      PartCctx.drawImage(fourPeople, 40, 570 - i * 60, 30, 30);
+    } else if (PartCFloors[i] == 5) {
+      PartCctx.drawImage(fivePeople, 40, 570 - i * 60, 30, 30);
+    }
+  }
+
+  //目前有多少人尚未搭乘電梯
+  let partCNumberOfoffTheElevator = 0;
+  for (let i = 0; i < PartCPeopleInfo.length; i++) {
+    if (PartCPeopleInfo[i].status == "offTheElevator") {
+      partCNumberOfoffTheElevator++;
+    }
+  }
+  console.log(
+    "partC電梯，目前有 " + partCNumberOfoffTheElevator + " 人尚未搭乘電梯"
+  );
+
+  //-------------------------------partC電梯初始化設定---------------------------------------------
+  //判斷目前是否有人在電梯內部且電梯有無basicTarget作為基準，如果兩個條件都無
+  //在這裡設置好電梯行徑方向與當前最高或最低樓層
+  //左邊電梯
+  // if (
+  //   PartCElevatorInfo.basicTarget == "none"
+  // ) {
+  //   //目前電梯內沒有乘客，也沒有基準
+  //   //從peopelInfo讀取一筆乘客資料status為offTheElevator，且elevatorResponse為none作為基準
+  //   //將該筆資料的In當作endFloor
+  //   //且判斷電梯運行方向
+  //   for (let i = 0; i < PartCPeopleInfo.length; i++) {
+  //     console.log("進入到設定partC電梯初始迴圈");
+  //     if (
+  //       PartCPeopleInfo[i].status == "offTheElevator" &&
+  //       PartCPeopleInfo[i].elevatorResponse == "none"
+  //     ) {
+  //       PartCElevatorInfo.endFloor = PartCPeopleInfo[i].In;
+  //       PartCPeopleInfo[i].elevatorResponse = "Yes";
+  //       console.log(
+  //         "partC電梯，將第 " + i + " 個乘客的elevatorResponse設定為Yes"
+  //       );
+  //       PartCElevatorInfo.basicTarget = "yes";
+  //       console.log(
+  //         "partC電梯，找到basicTarget，設置為: " + PartCElevatorInfo.basicTarget
+  //       );
+  //       if (PartCElevatorInfo.currentFloor < PartCPeopleInfo[i].In) {
+  //         PartCElevatorInfo.direction = "up";
+  //         if (PartCPeopleInfo[i].In < PartCPeopleInfo[i].Out) {
+  //           PartCElevatorInfo.futureDirection = "up";
+  //         } else if (PartCPeopleInfo[i].In > PartCPeopleInfo[i].Out) {
+  //           PartCElevatorInfo.futureDirection = "down";
+  //         }
+  //         break;
+  //       } else if (PartCElevatorInfo.currentFloor > PartCPeopleInfo[i].In) {
+  //         PartCElevatorInfo.direction = "down";
+  //         if (PartCPeopleInfo[i].In < PartCPeopleInfo[i].Out) {
+  //           PartCElevatorInfo.futureDirection = "up";
+  //         } else if (PartCPeopleInfo[i].In > PartCPeopleInfo[i].Out) {
+  //           PartCElevatorInfo.futureDirection = "down";
+  //         }
+  //         break;
+  //       }
+  //       break;
+  //     }
+  //   }
+  //   console.log("partC電梯初始方向為: " + PartCElevatorInfo.direction);
+  //   console.log("partC電梯接客樓層: " + PartCElevatorInfo.endFloor);
+  // }
+  //-------------------------------partC電梯初始化設定結束------------------------------------------
+
+  //------------------------------partC電梯往頂層底層循環-------------------------------------------
+  if (PartCElevatorInfo.currentFloor == 0) {
+    PartCElevatorInfo.direction = "up";
+  } else if (PartCElevatorInfo.currentFloor == 9) {
+    PartCElevatorInfo.direction = "down";
+  }
+
+  //-------------------------------partC電梯乘載客人條件--------------------------------------------
+  //判斷所有還未上電梯的乘客，是否有符合條件可以搭乘partC電梯
+  for (let i = 0; i < PartCPeopleInfo.length; i++) {
+    if (PartCPeopleInfo[i].status == "offTheElevator") {
+      console.log("partC電梯檢測到有乘客狀態為offTheElevator");
+      //狀態為offTheElevator，判斷電梯行徑方向是否與乘客相同
+      //如果是作為基準值，direction可能會因為去上接乘客往下，或是下去接乘客往上而有所不同
+      //所以elevatorResponse=yes的也可以搭乘
+
+      if (PartCElevatorInfo.currentFloor == PartCPeopleInfo[i].In) {
+        console.log("檢測到有乘客與電梯樓層相同");
+
+        //相同樓層
+        //判斷電梯內人數是否少於5人
+        if (PartCElevatorInfo.currentPeople < 7) {
+          console.log("檢測到電梯內部少於7人，可以搭乘");
+
+          //搭乘人數少於5人
+          //將資料推送到leftElevatorPassenger
+
+          PartCElevatorPassenger.push({
+            In: PartCPeopleInfo[i].In,
+            Out: PartCPeopleInfo[i].Out,
+            direction: PartCPeopleInfo[i].direction,
+          });
+          PartCPeopleInfo[i].status = "onTheElevator";
+          PartCElevatorInfo.currentPeople++;
+          console.log(
+            "已有 " + PartCElevatorInfo.currentPeople + " 位搭乘在左邊電梯內"
+          );
+
+          PartCDrawPassengerGetIntoTheElevator = setInterval(
+            partCPassengerGetIntoTheElevator,
+            500
+          );
+        }
+      }
+    }
+  }
+  //-------------------------------partC電梯乘載客人條件結束--------------------------------------------
+
+  //--------------------------------partC電梯更新資訊------------------------------
+  //當partC電梯內部有至少一人(>0)
+  //先把電梯當前樓層與第一筆資料的Out最比較
+  //判斷電梯該網上還是往下
+  //判斷所有在電梯內的乘客最高或最低為幾樓
+
+  if (PartCElevatorInfo.currentPeople > 0) {
+    //顯示乘客資訊------------------
+    for (let i = 0; i < PartCElevatorPassenger.length; i++) {
+      console.log("左邊電梯，當前第 " + (i + 1) + "位乘客");
+      console.log("左邊電梯，在 " + PartCElevatorPassenger[i].In + "進入電梯");
+      console.log("左邊電梯，在 " + PartCElevatorPassenger[i].Out + "離開電梯");
+      console.log("左邊電梯，行徑方向 " + PartCElevatorPassenger[i].direction);
+    }
+    console.log(
+      "左邊電梯，目前有 " + PartCElevatorInfo.currentPeople + " 位乘客"
+    );
+
+    // if (PartCElevatorInfo.currentFloor < PartCElevatorPassenger[0].Out) {
+    //   PartCElevatorInfo.direction = "up";
+    // } else if (PartCElevatorInfo.currentFloor > PartCElevatorPassenger[0].Out) {
+    //   PartCElevatorInfo.direction = "down";
+    // }
+    // console.log("左邊電梯方向調整後，方向為 : " + PartCElevatorInfo.direction);
+
+    // PartCElevatorInfo.endFloor = PartCElevatorPassenger[0].Out; //將第一位的Out暫時設為最終樓層
+    // //如果人數大於1人，依照direction為上或下，來判斷最終樓層為多少
+    // if (
+    //   PartCElevatorInfo.direction == "up" &&
+    //   PartCElevatorInfo.currentPeople > 1
+    // ) {
+    //   //電梯往上
+    //   for (let i = 1; i < PartCElevatorPassenger.length; i++) {
+    //     if (PartCElevatorInfo.endFloor < PartCElevatorPassenger[i].Out) {
+    //       PartCElevatorInfo.endFloor = PartCElevatorPassenger[i].Out;
+    //     }
+    //   }
+    // } else if (
+    //   PartCElevatorInfo.direction == "down" &&
+    //   PartCElevatorInfo.currentPeople > 1
+    // ) {
+    //   for (let i = 1; i < leftElevatorPassenger.length; i++) {
+    //     if (PartCElevatorInfo.endFloor > PartCElevatorPassenger[i].Out) {
+    //       PartCElevatorInfo.endFloor = PartCElevatorPassenger[i].Out;
+    //     }
+    //   }
+    // }
+    // console.log(
+    //   "partC電梯最終樓調整後，樓層為 : " + PartCElevatorInfo.endFloor
+    // );
+  }
+
+  //每次加一秒
+
+  PartCTime++;
+  //繪製所經過時間
+  PartCTotalTime();
+  console.log(
+    "最終PartCElevatorInfo.basicTarget為 : " + PartCElevatorInfo.basicTarget
+  );
+
+  //如果numberOfPeopleArrived=40，代表所有人已離開電梯，結束動畫
+  if (PartCNumberOfPeopleArrived == 40) {
+    window.alert("頂底層之間往返循環已完成，總耗時 : " + PartCTime + " 秒。");
+
+    clearInterval(PartCElevatorStart);
+  }
+
+  console.log("====================================");
+
+  //--------------------------------partC電梯更新資訊結束------------------------------
+}
+
+function partCPassengerGetIntoTheElevator() {
+  //繪製電梯旁乘客進入左邊電梯，讓電梯人數++
+
+  if (PartCElevatorInfo.currentPeople == 1) {
+    // console.log("重新繪製電梯內人數，目前1人");
+
+    PartCctx.drawImage(
+      onePerson,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 40,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  } else if (PartCElevatorInfo.currentPeople == 2) {
+    //console.log("重新繪製電梯內人數，目前2人");
+
+    PartCctx.drawImage(
+      twoPeople,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 40,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  } else if (PartCElevatorInfo.currentPeople == 3) {
+    //console.log("重新繪製電梯內人數，目前3人");
+
+    PartCctx.drawImage(
+      threePeople,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 40,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  } else if (PartCElevatorInfo.currentPeople == 4) {
+    //console.log("重新繪製電梯內人數，目前4人");
+
+    PartCctx.drawImage(
+      fourPeople,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 40,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  } else if (PartCElevatorInfo.currentPeople == 5) {
+    //console.log("重新繪製電梯內人數，目前5人");
+
+    PartCctx.drawImage(
+      fivePeople,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 40,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  } else if (PartCElevatorInfo.currentPeople == 6) {
+    //console.log("重新繪製電梯內人數，目前6人");
+
+    PartCctx.drawImage(
+      sixpeople,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 40,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  } else if (PartCElevatorInfo.currentPeople == 7) {
+    //console.log("重新繪製電梯內人數，目前7人");
+
+    PartCctx.drawImage(
+      sevenpeople,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 40,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  }
+  //繪製完電梯內乘客後，更新電梯外人數
+  let partCFloors = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  for (let i = 0; i < PartCPeopleInfo.length; i++) {
+    if (PartCPeopleInfo[i].status == "offTheElevator") {
+      switch (PartCPeopleInfo[i].In) {
+        case 0:
+          partCFloors[0]++;
+          break;
+        case 1:
+          partCFloors[1]++;
+          break;
+        case 2:
+          partCFloors[2]++;
+          break;
+        case 3:
+          partCFloors[3]++;
+          break;
+        case 4:
+          partCFloors[4]++;
+          break;
+        case 5:
+          partCFloors[5]++;
+          break;
+        case 6:
+          partCFloors[6]++;
+          break;
+        case 7:
+          partCFloors[7]++;
+          break;
+        case 8:
+          partCFloors[8]++;
+          break;
+        case 9:
+          partCFloors[9]++;
+          break;
+      }
+    }
+  }
+
+  for (let i = 0; i < partCFloors.length; i++) {
+    if (partCFloors[i] == 0) {
+      PartCctx.fillStyle = "lightcyan";
+      PartCctx.fillRect(40, 570 - i * 60, 30, 30);
+    } else if (partCFloors[i] == 1) {
+      //console.log("重新繪製" + i + "樓電梯旁人數，剩餘人數 1 ..");
+
+      PartCctx.drawImage(onePerson, 40, 570 - i * 60, 30, 30);
+    } else if (partCFloors[i] == 2) {
+      PartCctx.drawImage(twoPeople, 40, 570 - i * 60, 30, 30);
+      //console.log("重新繪製" + Floors[i] + "樓電梯旁人數，剩餘人數 2 ..");
+    } else if (partCFloors[i] == 3) {
+      PartCctx.drawImage(threePeople, 40, 570 - i * 60, 30, 30);
+      //console.log("重新繪製" + Floors[i] + "樓電梯旁人數，剩餘人數 3 ..");
+    } else if (partCFloors[i] == 4) {
+      PartCctx.drawImage(fourPeople, 40, 570 - i * 60, 30, 30);
+      //console.log("重新繪製" + Floors[i] + "樓電梯旁人數，剩餘人數 4 ..");
+    } else if (partCFloors[i] == 5) {
+      PartCctx.drawImage(fivePeople, 40, 570 - i * 60, 30, 30);
+      //console.log("重新繪製" + Floors[i] + "樓電梯旁人數，剩餘人數 5 ..");
+    }
+  }
+}
+
+function partCPassengerGetOutTheElevator() {
+  //繪製剩餘在左邊電梯內人數;
+  if (PartCElevatorInfo.currentPeople == 0) {
+    PartCctx.drawImage(
+      zero,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 40,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  } else if (PartCElevatorInfo.currentPeople == 1) {
+    PartCctx.drawImage(
+      onePerson,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 40,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  } else if (PartCElevatorInfo.currentPeople == 2) {
+    PartCctx.drawImage(
+      twoPeople,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 40,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  } else if (PartCElevatorInfo.currentPeople == 3) {
+    PartCctx.drawImage(
+      threePeople,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 40,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  } else if (PartCElevatorInfo.currentPeople == 4) {
+    PartCctx.drawImage(
+      fourPeople,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 40,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  } else if (PartCElevatorInfo.currentPeople == 5) {
+    PartCctx.drawImage(
+      fivePeople,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 40,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  }
+  // 繪製part電梯左邊顯示離開的人數
+
+  if (PartCNumberOfPassengerGetOutTheElevator == 1) {
+    PartCctx.drawImage(
+      onePerson,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 140,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  } else if (PartCNumberOfPassengerGetOutTheElevator == 2) {
+    PartCctx.drawImage(
+      twoPeople,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 140,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  } else if (PartCNumberOfPassengerGetOutTheElevator == 3) {
+    PartCctx.drawImage(
+      threePeople,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 140,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  } else if (PartCNumberOfPassengerGetOutTheElevator == 4) {
+    PartCctx.drawImage(
+      fourPeople,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 140,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  } else if (PartCNumberOfPassengerGetOutTheElevator == 5) {
+    PartCctx.drawImage(
+      fivePeople,
+      PartCElevator[PartCElevatorInfo.currentFloor].x + 140,
+      PartCElevator[PartCElevatorInfo.currentFloor].y + 10,
+      30,
+      30
+    );
+  }
+  PartCNumberOfPassengerGetOutTheElevator = 0;
+
+  clearInterval(PartCDrawPassengerGetOutTheElevator);
+}
+
+let PartCElevatorStart = setInterval(PartCDraw, 100);
+
+let partCPause = false;
+const partCcancelButton = document.getElementById("partCToggleButton");
+partCcancelButton.addEventListener("click", () => {
+  console.log("按下按鈕.......................");
+  partCPause = !partCPause;
+  if (partCPause == true) {
+    console.log("暫停動畫");
+    clearInterval(PartCElevatorStart);
+  } else if (partCPause == false) {
+    console.log("繼續動畫");
+
+    PartCElevatorStart = setInterval(PartCDraw, 1000);
+  }
+});
+
+//--------------------------------------------------------------------------------------------------------
+//---------------------------------PART C 頂底層之間往返循環結束---------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------
