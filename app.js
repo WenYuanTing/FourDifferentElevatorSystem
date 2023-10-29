@@ -435,8 +435,8 @@ function draw() {
       //如果是作為基準值，direction可能會因為去上接乘客往下，或是下去接乘客往上而有所不同
       //所以elevatorResponse=yes的也可以搭乘
       if (
-        (leftElevatorInfo.futureDirection == peopleInfo[i].direction &&
-          leftElevatorInfo.direction == peopleInfo[i].direction) ||
+        leftElevatorInfo.futureDirection == peopleInfo[i].direction ||
+        leftElevatorInfo.direction == peopleInfo[i].direction ||
         peopleInfo[i].elevatorResponse == "leftYes"
       ) {
         console.log(
